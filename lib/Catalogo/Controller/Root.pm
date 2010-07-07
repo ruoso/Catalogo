@@ -10,7 +10,7 @@ sub base :Chained('/') :CaptureArgs(0) :PathPart('') {}
 
 sub index :Chained('base') :Args(0) :PathPart('') {}
 
-sub default :Path {
+sub default :Chained('base') :Args :PathPart('') {
     my ( $self, $c ) = @_;
     $c->response->body( 'Page not found' );
     $c->response->status(404);
