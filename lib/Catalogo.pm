@@ -14,10 +14,40 @@ use Catalyst::Runtime 5.80;
 
 use Catalyst qw/
     -Debug
+    Authentication
     Unicode
     ConfigLoader
     Static::Simple
 /;
+
+__PACKAGE__->config( 'Plugin::Authentication' =>
+                    {
+                        default_realm => 'members',
+                        realms => {
+                            members => {
+                                credential => {
+                                    class => 'Password',
+                                    password_field => 'password',
+                                    password_type => 'clear'
+                                },
+                                store => {
+                                    class => 'Minimal',
+                                    users => {
+                                        bob => {
+                                            password => "123",
+                                            editor => 'yes',
+                                            roles => [qw/edit delete/],
+                                        },
+                                        william => {
+                                            password => "456",
+                                            roles => [qw/comment/],
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+    );
 
 extends 'Catalyst';
 

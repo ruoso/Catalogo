@@ -1,0 +1,15 @@
+<HTML>
+ <HEAD>
+  <TITLE>Pagina de Login</TITLE>
+ </HEAD>
+ <BODY>
+  [% IF error == 'usuario-invalido' %]
+  <P>Login ou senha invalida.</P>
+  [% END %]
+  <FORM action="[% c.uri_for_action('/auth/login') %]" method="POST">
+   <INPUT TYPE="text" name="login">
+   <INPUT TYPE="password" name="password">
+   <input type="submit" value="login">
+  </form>
+ </body>
+</html>
