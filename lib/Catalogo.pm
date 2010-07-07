@@ -16,6 +16,9 @@ use Catalyst qw/
     -Debug
     Authentication
     Unicode
+    Session
+    Session::Store::FastMmap
+    Session::State::Cookie
     ConfigLoader
     Static::Simple
 /;
