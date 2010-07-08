@@ -1,18 +1,15 @@
 <UL>
- <LI>Informações de Domínio
+ <LI>Termos de Referência
   <UL>
-   <LI><a href="[% base %]coordenaco">Coordenações<a></LI>
-   <LI><a href="[% base %]papei">Papéis</a></LI>
-   <LI><a href="[% base %]tiposobjetivo">Tipos de Objetivo</a></LI>
-   <LI><a href="[% base %]tiposrestricao">Tipos de Restricao</a></LI>
-   <LI><a href="[% base %]cargo">Cargos</a></LI>
-   <LI><a href="[% base %]pessoa">Pessoas</a></LI>
+   <LI><a href="#">Categorias de Termos de Referência<a></LI>
+   <LI><a href="#">Buscar Termo de Referência<a></LI>
   </UL>
  </LI>
- <LI>Cadastros
+ <LI>Produtos
   <UL>
-   <LI><a href="[% base %]projeto">Projetos</a></LI>
-   <LI><a href="[% base %]servico">Serviços</a></LI>
+   <LI><a href="#">Categorias de Produtos<a></LI>
+   <LI><a href="#">Buscar Produto<a></LI>
   </UL>
  </LI>
+ <LI><A href="[% c.uri_for_action('/auth/logout') %]">Sair</A></LI>
 </UL>

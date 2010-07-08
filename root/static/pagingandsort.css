@@ -1,0 +1,14 @@
+/* HTML TAGS */
+
+.menu {
+    width: 15em;
+    float: right;
+}
+
+.content {
+    padding: 30px 12px 12px 12px;
+    font-size: 16px;
+}
+
+.footer { clear: both; }
+

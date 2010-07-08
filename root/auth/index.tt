@@ -1,4 +1,5 @@
 [% c.place_bread(c.req.uri, 'Área Autenticada') %]
 [% INCLUDE 'header.tt' %]
-  Olá [% c.user.id %]!
+
+
 [% INCLUDE 'footer.tt' %]

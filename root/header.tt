@@ -31,7 +31,10 @@
         <div id='topo'>
             <img src="[% c.uri_for('/static/img/logoBrasaoPMF.png') %]">
             <div id='topoTitulo'>
-                Portfólio de Projetos
+                Catálogo Corporativo de Materiais e Serviços
+                [% IF c.user %]
+                <table><TR><TD>Usuário:</TD><TD>[% c.user.id %]</TD></TR></TABLE>
+                [% END %]
             </div>
         </div>
         <div id='barraTopo'>
@@ -39,5 +42,7 @@
              [% INCLUDE table_menu.tt %]
             </ul>
         </div>
-        <div id="conteudo">
+        <div id="breadcrumb">        
           [% INCLUDE 'breadcrumb.tt' %]
+        </div>
+        <div id="conteudo">

@@ -25,6 +25,12 @@ sub login :Chained('/base') :Args(0) {
     }
 }
 
+sub logout :Chained('/base') :Args(0) {
+    my ($self, $c) = @_;
+    $c->logout;
+    $c->res->redirect($c->uri_for_action('/index'));
+}
+
 __PACKAGE__->meta->make_immutable;
 
 1;
