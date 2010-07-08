@@ -8,13 +8,13 @@ has schema => (is => 'ro', required => 1);
 has user   => (is => 'ro', required => 1);
 
 method listar_tr_categorias
-  ( Int $categoria_inicial, Int $profundidade = 2,
-    Int $linhas_por_pagina = 50, Int $pagina = 1,
-    Str $pesquisa )
+  ( Str $pesquisa? = '%', Int $categoria_inicial?, Int $profundidade? = 2, 
+    Int $linhas_por_pagina? = 50, Int $pagina? = 1)
   does Transactional
   does Authorized(requires => ['adm_catalogo_tr']) {
 
-
+    $self->schema->resultset('TrCategoria')->search({ -or => { nome => { like => $pesquisa },
+                                                               descricao => { like => $pesquisa } } });
 
   };
 

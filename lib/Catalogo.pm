@@ -42,7 +42,7 @@ __PACKAGE__->config
             { bob =>
               { password => "123",
                 editor => 'yes',
-                roles => [qw/edit delete/] },
+                roles => [qw/edit delete adm_catalogo_tr/] },
               william =>
               { password => "456",
                 roles => [qw/comment/] } } } } } }

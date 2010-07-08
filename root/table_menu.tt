@@ -1,7 +1,7 @@
 <UL>
  <LI>Termos de Referência
   <UL>
-   <LI><a href="#">Categorias de Termos de Referência<a></LI>
+   <LI><a href="[% c.uri_for_action('/auth/trcategorias/index') %]">Categorias de Termos de Referência<a></LI>
    <LI><a href="#">Buscar Termo de Referência<a></LI>
   </UL>
  </LI>
