@@ -1,0 +1,10 @@
+[% c.place_bread(c.req.uri, 'Lista de categorias TR') %]
+[% INCLUDE 'header.tt' %]
+
+<UL>
+[% FOREACH categoria IN c.model('TermoReferencia').listar_tr_categorias() %]
+    <LI>[% categoria.nome %]</LI>
+[% END %]
+</UL>
+
+[% INCLUDE 'footer.tt' %]
