@@ -1,0 +1,7 @@
+[% IF c.breadcrumb %]
+ <DIV id="breadcrumb">
+ [% FOREACH bread IN c.breadcrumb %]
+  » <A HREF="[% bread.uri %]">[% bread.label %]</A></LI>
+ [% END %]
+ </DIV>
+[% END %]

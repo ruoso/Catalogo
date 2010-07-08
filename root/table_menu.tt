@@ -1,0 +1,18 @@
+<UL>
+ <LI>Informações de Domínio
+  <UL>
+   <LI><a href="[% base %]coordenaco">Coordenações<a></LI>
+   <LI><a href="[% base %]papei">Papéis</a></LI>
+   <LI><a href="[% base %]tiposobjetivo">Tipos de Objetivo</a></LI>
+   <LI><a href="[% base %]tiposrestricao">Tipos de Restricao</a></LI>
+   <LI><a href="[% base %]cargo">Cargos</a></LI>
+   <LI><a href="[% base %]pessoa">Pessoas</a></LI>
+  </UL>
+ </LI>
+ <LI>Cadastros
+  <UL>
+   <LI><a href="[% base %]projeto">Projetos</a></LI>
+   <LI><a href="[% base %]servico">Serviços</a></LI>
+  </UL>
+ </LI>
+</UL>

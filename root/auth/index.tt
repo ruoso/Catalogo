@@ -1,11 +1,4 @@
-<HTML>
- <HEAD>
-  <TITLE>Pagina Autenticada</TITLE>
- </HEAD>
- <BODY>
-  <H1>Área Autenticada</H1>
-  [% c.place_bread(c.req.uri, 'Área Autenticada') %]
-  [% INCLUDE 'breadcrumb.tt' %]
+[% c.place_bread(c.req.uri, 'Área Autenticada') %]
+[% INCLUDE 'header.tt' %]
   Olá [% c.user.id %]!
- </body>
-</html>
+[% INCLUDE 'footer.tt' %]
