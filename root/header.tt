@@ -21,7 +21,7 @@
 <html xmlns='http://www.w3.org/1999/xhtml'>
     <head>
         <meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8" />
-        <title>Portfólio de Projetos</title>
+        <title>Catálogo Corporativo de Materiais e Serviços</title>
         <link href='[% c.uri_for('/static/estilo.css') %]' rel='stylesheet' type='text/css' />
         <script src='[% c.uri_for('/static/js/plugins/jquery.js') %]' language='javascript'>
         </script>
