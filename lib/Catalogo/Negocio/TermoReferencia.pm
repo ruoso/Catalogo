@@ -14,6 +14,14 @@ method listar_tr_categorias
   does Transactional
   does Authorized(requires => ['adm_catalogo_tr']) {
 
+
+
+  };
+
+
+1;
+
+
 =for nobody
 
       WITH RECURSIVE arvore_categorias (nivel, tr_categoria_id, codigo, nome, descricao) AS (
@@ -25,8 +33,3 @@ method listar_tr_categorias
       SELECT * FROM arvore_categorias;
 
 =cut
-
-  };
-
-
-1;
