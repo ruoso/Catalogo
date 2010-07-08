@@ -1,10 +1,34 @@
 [% c.place_bread(c.req.uri, 'Lista de categorias TR') %]
 [% INCLUDE 'header.tt' %]
 
+[%  
+    IF (!defined(c.req.param('pagina')));
+        CALL c.req.param('pagina',1);
+    END;
+    IF (defined(c.req.param('txtfiltro')));
+        SET v = c.req.param('txtfiltro');
+    ELSE;
+        SET v = '%';
+    END;
+    SET linhas_por_pagina = 1;
+    SET categoria_rs = c.model('TermoReferencia').listar_tr_categorias(
+     v, c.req.param('pagina'), linhas_por_pagina );
+    SET registros = categoria_rs.count();
+    SET num_paginas = int(registros / linhas_por_pagina) + 1;
+%]
+
+<FORM ACTION='[% c.uri_for_action('/auth/trcategorias/index') %]' METHOD='GET'>
+    <INPUT TYPE='text' name='txtfiltro' VALUE="[% c.req.param('txtfiltro') | html %]" />
+    <INPUT TYPE='submit' name='btnenviar' value='enviar' />
+</FORM>
+
 <UL>
-[% FOREACH categoria IN c.model('TermoReferencia').listar_tr_categorias() %]
+[% FOREACH categoria IN categoria_rs.all %]
     <LI>[% categoria.nome %]</LI>
 [% END %]
 </UL>
+
+<P>Página [% c.req.param('pagina') %] de [% num_paginas %] ([% registros %] registros)</P>
+
 
 [% INCLUDE 'footer.tt' %]
