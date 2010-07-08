@@ -1,3 +1,5 @@
 <HTML>
 <H1>Olá Mundo</H1>
+[% c.place_bread(c.req.uri, 'Página Inicial') %]
+[% INCLUDE 'breadcrumb.tt' %]
 </HTML>
