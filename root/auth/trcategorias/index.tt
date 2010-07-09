@@ -2,28 +2,31 @@
     IF (!c.req.param('pagina'));
         CALL c.req.param('pagina',1);
     END;
-    IF (defined(c.req.param('txtfiltro')));
+    IF c.req.param('txtfiltro');
         SET v = c.req.param('txtfiltro');
     ELSE;
         SET v = '%';
     END;
-    SET linhas_por_pagina = 2;
-    SET categoria_rs = c.model('TermoReferencia').listar_tr_categorias( v );
+    SET linhas_por_pagina = 1;
+    SET categoria_rs = c.model('TermoReferencia').listar_tr_categorias(v);
     SET registros = categoria_rs.count();
-    SET num_paginas = ((registros / linhas_por_pagina) + 0.5) div 1;
+    SET num_paginas = registros div linhas_por_pagina;
+    IF registros % linhas_por_pagina;
+       SET num_paginas = num_paginas + 1;
+    END;
 %]
 
 [% c.place_bread(c.req.uri, 'Categorias TR (pag. ' _ c.req.param('pagina') _ ')') %]
 [% INCLUDE 'header.tt' %]
 
 
-<FORM ACTION='[% c.uri_for_action('/auth/trcategorias/index') %]' METHOD='GET'>
+<FORM ACTION='[% c.uri_for_action('/auth/trcategorias/index') %]' METHOD='POST'>
     <INPUT TYPE='text' name='txtfiltro' VALUE="[% c.req.param('txtfiltro') | html %]" />
-    <INPUT TYPE='submit' name='btnenviar' value='enviar' />
+    <INPUT TYPE='submit' value='enviar' />
 </FORM>
 
 <UL>
-[% FOREACH categoria IN categoria_rs.search({},{ rows => linhas_por_pagina, page => c.req.param('pagina') }) %]
+[% FOREACH categoria IN categoria_rs.search(undef, { rows => linhas_por_pagina, page => c.req.param('pagina') }) %]
     <LI>[% categoria.nome %]</LI>
 [% END %]
 </UL>
