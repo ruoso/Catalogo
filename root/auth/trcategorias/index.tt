@@ -20,7 +20,7 @@
 [% INCLUDE 'header.tt' %]
 
 
-<FORM ACTION='[% c.uri_for_action('/auth/trcategorias/index') %]' METHOD='POST'>
+<FORM ACTION='[% c.uri_for_action('/auth/trcategorias/index') %]' METHOD='GET'>
     <INPUT TYPE='text' name='txtfiltro' VALUE="[% c.req.param('txtfiltro') | html %]" />
     <INPUT TYPE='submit' value='enviar' />
 </FORM>
