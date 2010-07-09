@@ -1,8 +1,5 @@
-[% c.place_bread(c.req.uri, 'Lista de categorias TR') %]
-[% INCLUDE 'header.tt' %]
-
 [%  
-    IF (!defined(c.req.param('pagina')));
+    IF (!c.req.param('pagina'));
         CALL c.req.param('pagina',1);
     END;
     IF (defined(c.req.param('txtfiltro')));
@@ -10,12 +7,15 @@
     ELSE;
         SET v = '%';
     END;
-    SET linhas_por_pagina = 1;
-    SET categoria_rs = c.model('TermoReferencia').listar_tr_categorias(
-     v, c.req.param('pagina'), linhas_por_pagina );
+    SET linhas_por_pagina = 2;
+    SET categoria_rs = c.model('TermoReferencia').listar_tr_categorias( v );
     SET registros = categoria_rs.count();
-    SET num_paginas = int(registros / linhas_por_pagina) + 1;
+    SET num_paginas = ((registros / linhas_por_pagina) + 0.5) div 1;
 %]
+
+[% c.place_bread(c.req.uri, 'Categorias TR (pag. ' _ c.req.param('pagina') _ ')') %]
+[% INCLUDE 'header.tt' %]
+
 
 <FORM ACTION='[% c.uri_for_action('/auth/trcategorias/index') %]' METHOD='GET'>
     <INPUT TYPE='text' name='txtfiltro' VALUE="[% c.req.param('txtfiltro') | html %]" />
@@ -23,11 +23,22 @@
 </FORM>
 
 <UL>
-[% FOREACH categoria IN categoria_rs.all %]
+[% FOREACH categoria IN categoria_rs.search({},{ rows => linhas_por_pagina, page => c.req.param('pagina') }) %]
     <LI>[% categoria.nome %]</LI>
 [% END %]
 </UL>
 
+<P>
+[% IF c.req.param('pagina') > 1 %]
+[% SET args = {}; args.import(c.req.params); args.import({ pagina => c.req.param('pagina') - 1 }) %]
+<A HREF="[% c.uri_for_action('/auth/trcategorias/index', args) %]">Anterior</A>
+[% END %]
+
+[% IF c.req.param('pagina') < num_paginas %]
+[% SET args = {}; args.import(c.req.params); args.import({ pagina => c.req.param('pagina') + 1 }) %]
+<A HREF="[% c.uri_for_action('/auth/trcategorias/index', args) %]">Próxima</A>
+[% END %]
+</P>
 <P>Página [% c.req.param('pagina') %] de [% num_paginas %] ([% registros %] registros)</P>
 
 
