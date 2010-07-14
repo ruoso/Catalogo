@@ -1,15 +1,17 @@
-[%  
-    IF c.req.param('txtfiltro');
-        SET v = c.req.param('txtfiltro');
-    ELSE;
-        SET v = '%';
-    END;
-    SET paginacao_rs = c.model('TermoReferencia').listar_tr_categorias(v);
-%]
+[% IF tr_categoria_mae_id %]
+[%  SET paginacao_rs = c.model('TermoReferencia').navegar_tr_categorias(tr_categoria_mae_id); %]
+[% ELSE %]
+[%  SET paginacao_rs = c.model('TermoReferencia').navegar_tr_categorias(); %]
+[% END %]
+
 [% PROCESS configuracao_paginacao.tt %]
 
+[% IF tr_categoria_mae %]
+[% c.place_bread(c.req.uri, 'Categorias TR (' _ tr_categoria_mae.codigo _ ' p. ' _ c.req.param('pagina') _ ')') %]
+[% ELSE %]
+[% c.place_bread(c.req.uri, 'Categorias TR (p. ' _ c.req.param('pagina') _ ')') %]
+[% END %]
 
-[% c.place_bread(c.req.uri, 'Categorias TR (pag. ' _ c.req.param('pagina') _ ', ' _ v _ ')') %]
 [% INCLUDE 'header.tt' %]
 
 

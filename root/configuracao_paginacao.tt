@@ -1,0 +1,13 @@
+[%
+    IF (!c.req.param('pagina'));
+      CALL c.req.param('pagina',1);
+    END;
+    SET linhas_por_pagina = 40;
+    SET pagina_rs = paginacao_rs.search_rs({}, { rows => linhas_por_pagina, page => c.req.param('pagina') });
+    SET num_registros = paginacao_rs.count();
+    SET num_paginas = num_registros div linhas_por_pagina;
+    IF num_registros % linhas_por_pagina;
+       SET num_paginas = num_paginas + 1;
+    END;
+%]
+

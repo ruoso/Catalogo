@@ -1,0 +1,2 @@
+
+<DIV id="resumo_paginacao">Página [% c.req.param('pagina') %] de [% num_paginas %] ([% num_registros %] registros)</DIV>

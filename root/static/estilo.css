@@ -1,3 +1,21 @@
+#lista_de_tr_categorias {
+//    width: 40em;
+}
+
+#lista_de_tr_categorias li {
+//    border-bottom: #990000 solid 1px;	
+    min-height: 25px;
+}
+
+.tr_categoria {
+    display: block;
+}
+
+.acoes_categoria {
+//    float: right;
+//    display: block;
+}
+
 html
 {
     font-family: Arial, Helvetica, sans-serif;
@@ -5,7 +23,7 @@ html
 }
 
 body {
-	background: url(../img/degrade.jpg) repeat-x 0% 130px;
+	background: url(img/degrade.jpg) repeat-x 0% 130px;
 	margin: 0px;
 }
 
@@ -20,9 +38,9 @@ a, a:active, a:hover, a:visited {
 	text-decoration: underline;
 }
 
-label {
-    display: block;
-}
+//label {
+//    display: block;
+//}
 
 #breadcrumb {
     margin: 10px 10px 0px;
@@ -35,7 +53,7 @@ label {
     padding-top: 0px;
     height: 100px;
     /*width: 760px;*/
-    background: #D40000 url(../img/bg_topo2.png) top left repeat-x;
+    background: #D40000 url(img/bg_topo2.png) top left repeat-x;
 }
 
 #topo img {
@@ -70,7 +88,7 @@ label {
 {
     margin: 0px auto 0px;
     height: 30px;
-    background: #FFD214 url(../img/bgRodape.png) top left repeat-x;
+    background: #FFD214 url(img/bgRodape.png) top left repeat-x;
     z-index: 10;
 }
 
@@ -139,7 +157,7 @@ label {
 {
     margin: 20px 30px 0px;
     text-align:left;
-	background: url(../img/house.png) no-repeat 0% 1px;
+	background: url(img/house.png) no-repeat 0% 1px;
 	text-indent: 22px;
 	/*height: 22px;*/
     /*width:758px;*/
@@ -188,11 +206,11 @@ label {
 }
 
 a.novo {
-	background: url('../img/add.png') no-repeat 0% 50%;
+	background: url('img/add.png') no-repeat 0% 50%;
 	padding-left: 22px;
 }
 a.voltar {
-	background: url('../img/18.png') no-repeat 0% 50%;
+	background: url('img/18.png') no-repeat 0% 50%;
 	padding-left: 22px;
 }
 
@@ -220,7 +238,7 @@ a.voltar {
     font-size: 12px;
     font-weight: normal;
     text-transform:none;
-    background: #FFD214 url(../img/bgRodape.png) top left repeat-x;
+    background: #FFD214 url(img/bgRodape.png) top left repeat-x;
     color:#CC0000;
 }
 
@@ -372,7 +390,7 @@ a.fechar
 	height: 22px;
 	text-indent: -9999px;
 	text-decoration: none;
-	background: url(../img/application_form_delete.png) no-repeat center center;
+	background: url(img/application_form_delete.png) no-repeat center center;
 	overflow: hidden;
 	border: none;	
 	padding: 0px;
@@ -385,7 +403,7 @@ a.aprovar
 	height: 22px;
 	text-indent: -9999px;
 	text-decoration: none;
-	background: url(../img/accept.png) no-repeat center center;
+	background: url(img/accept.png) no-repeat center center;
 	overflow: hidden;
 	border: none;	
 	padding: 0px;
@@ -398,7 +416,7 @@ a.rejeitar
 	height: 22px;
 	text-indent: -9999px;
 	text-decoration: none;
-	background: url(../img/cancel.png) no-repeat center center;
+	background: url(img/cancel.png) no-repeat center center;
 	overflow: hidden;
 	border: none;	
 	padding: 0px;
@@ -422,7 +440,7 @@ a.visualizar
 	height: 22px;
 	text-indent: -9999px;
 	text-decoration: none;
-	background: url(../img/magnifier.png) no-repeat center center;
+	background: url(img/magnifier.png) no-repeat center center;
 	overflow: hidden;
 	border: none;	
 	padding: 0px;
@@ -522,7 +540,7 @@ button {
     height:24px;
     letter-spacing:1px;
     color:#6C3600;
-    background: #E6B800 url(../img/bgLoginTopo.png) center top no-repeat;
+    background: #E6B800 url(img/bgLoginTopo.png) center top no-repeat;
 }
 
 #loginConteudo
@@ -533,7 +551,7 @@ button {
     padding-bottom:10px;
     height: auto;
     border: #E6B800 solid 1px;
-    background: url(../img/bgLogin.png) bottom right no-repeat;
+    background: url(img/bgLogin.png) bottom right no-repeat;
 }
 
 #loginConteudo fieldset
@@ -561,7 +579,7 @@ a.editar {
 	height: 22px;
 	text-indent: -9999px;
 	text-decoration: none;
-	background: url(../img/pencil.png) no-repeat center center;
+	background: url(img/pencil.png) no-repeat center center;
 	overflow: hidden;
 	border: none;
 	
@@ -575,7 +593,7 @@ a.detalhes {
 	height: 22px;
 	text-indent: -9999px;
 	text-decoration: none;
-	background: url(../img/magnifier.png) no-repeat center center;
+	background: url(img/magnifier.png) no-repeat center center;
 	overflow: hidden;
 	border: none;
 	
@@ -589,7 +607,7 @@ button.detalhes {
 	height: 22px;
 	text-indent: -9999px;
 	text-decoration: none;
-	background: url(../img/magnifier.png) no-repeat center center;
+	background: url(img/magnifier.png) no-repeat center center;
 	overflow: hidden;
 	border: none;
 	
@@ -612,7 +630,7 @@ tr.odd td {
         font-weight: bold;
 	color: darkgreen;
         background-color: #ffffaf;
-	background-image: url(../img/02.png);
+	background-image: url(img/02.png);
 	background-position: 12px 50%;
 	background-repeat: no-repeat;
         padding: 1em 2em 1em 3em;
@@ -625,7 +643,7 @@ tr.odd td {
         font-size: 1.3em;
         font-weight: bold;
 	color: darkred;
-	background-image: url(../img/exclamation.png);
+	background-image: url(img/exclamation.png);
 	background-position: 12px 50%;
 	background-repeat: no-repeat;
         background-color: #fe9;

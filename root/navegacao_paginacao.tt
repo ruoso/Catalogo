@@ -1,0 +1,37 @@
+<DIV id="navegacao_paginacao">
+
+[% IF c.req.param('pagina') > 1 %]
+[% SET args = {}; args.import(c.req.params); args.import({ pagina => c.req.param('pagina') - 1 }) %]
+<A HREF="[% c.uri_for('/' _ c.req.path, args) %]">Anterior</A>
+
+[% IF (c.req.param('pagina') > 7) %]...[% END %]
+
+[% SET i = 0; SET l = c.req.param('pagina') - 6; IF (l < 1); SET l = 1; END %]
+[% WHILE (i < 6 && l < c.req.param('pagina') && l > 0) %]
+
+[% SET args = {}; args.import(c.req.params); args.import({ pagina => l }) %]
+<A HREF="[% c.uri_for('/' _ c.req.path, args) %]">[% l %]</A>
+   
+[% SET i = i + 1; SET l = l + 1 %]
+[% END %]
+
+[% END %]
+
+[% c.req.param('pagina') %]
+
+[% IF c.req.param('pagina') < num_paginas %]
+
+[% SET i = 0; SET l = c.req.param('pagina') + 1 %]
+[% WHILE (i < 6 and l <= num_paginas) %]
+
+[% SET args = {}; args.import(c.req.params); args.import({ pagina => l }) %]
+<A HREF="[% c.uri_for('/' _ c.req.path, args) %]">[% l %]</A>
+   
+[% SET i = i + 1; SET l = l + 1 %]
+[% IF (i == 6 && l <= num_paginas) %]...[% END %]
+[% END %]
+[% SET args = {}; args.import(c.req.params); args.import({ pagina => c.req.param('pagina') + 1 }) %]
+<A HREF="[% c.uri_for('/' _ c.req.path, args) %]">Próxima</A>
+[% END %]
+
+</DIV>

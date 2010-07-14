@@ -5,13 +5,13 @@ use Catalyst::Runtime 5.80;
 
 use Catalyst qw/
     -Debug
+    ConfigLoader
+    Unicode::Encoding
+    Static::Simple
     Authentication
-    Unicode
     Session
     Session::Store::FastMmap
     Session::State::Cookie
-    ConfigLoader
-    Static::Simple
 /;
 
 

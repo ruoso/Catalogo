@@ -1,0 +1,10 @@
+[%  
+    IF c.req.param('txtfiltro');
+        SET v = c.req.param('txtfiltro');
+    ELSE;
+        SET v = '%';
+    END;
+    SET paginacao_rs = c.model('TermoReferencia').listar_tr_categorias(v);
+%]
+[% PROCESS configuracao_paginacao.tt %]
+[% INCLUDE 'auth/trcategorias/lista_tr_categorias.tt' %]

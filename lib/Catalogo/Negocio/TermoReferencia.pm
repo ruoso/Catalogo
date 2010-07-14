@@ -7,16 +7,24 @@ use aliased 'MooseX::Meta::Method::Authorized';
 has schema => (is => 'ro', required => 1);
 has user   => (is => 'ro', required => 1);
 
-method listar_tr_categorias
-  ( Str $pesquisa? = '%', Int $categoria_inicial?, Int $profundidade? = 2 )
-  does Transactional
-  does Authorized(requires => ['adm_catalogo_tr']) {
+method listar_tr_categorias( Str $pesquisa? = '%' ) does Transactional does Authorized(requires => ['adm_catalogo_tr']) {
+    $self->schema->resultset('TrCategoria')->search_rs
+      ({ -or => { nome => { ilike => $pesquisa },
+                  descricao => { ilike => $pesquisa } } },
+       { order_by => 'codigo' });
 
-    $self->schema->resultset('TrCategoria')->search_rs({ -or => { nome => { like => $pesquisa },
-                                                                  descricao => { like => $pesquisa } } });
+};
 
-  };
+method navegar_tr_categorias(Int $tr_categoria_id?) does Transactional does Authorized(requires => ['adm_catalogo_tr']) {
+    $self->schema->resultset('TrCategoria')->search_rs
+      ({ tr_categoria_mae_id => $tr_categoria_id },
+       { order_by => 'codigo' });
+};
 
+method obter_tr_categoria(Int $tr_categoria_id) does Transactional does Authorized(requires => ['adm_catalogo_tr']) {
+    $self->schema->resultset('TrCategoria')->find
+      ({ tr_categoria_id => $tr_categoria_id });
+};
 
 1;
 

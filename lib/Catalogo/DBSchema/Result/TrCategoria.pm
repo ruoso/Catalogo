@@ -61,6 +61,12 @@ __PACKAGE__->table("tr_categorias");
   data_type: 'timestamp without time zone'
   is_nullable: 1
 
+=head2 nivel
+
+  data_type: 'integer'
+  default_value: 0
+  is_nullable: 0
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -83,6 +89,8 @@ __PACKAGE__->add_columns(
   { data_type => "timestamp without time zone", is_nullable => 1 },
   "validade_fim",
   { data_type => "timestamp without time zone", is_nullable => 1 },
+  "nivel",
+  { data_type => "integer", default_value => 0, is_nullable => 0 },
 );
 __PACKAGE__->set_primary_key("tr_categoria_id");
 
@@ -139,9 +147,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.06000 @ 2010-07-07 23:48:45
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:5HBbmF2QdQZWs7hWBYuVSA
-
+# Created by DBIx::Class::Schema::Loader v0.06000 @ 2010-07-09 13:25:19
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:dlOLdJh0CoFTIAGPmbquNQ
 
 # You can replace this text with custom content, and it will be preserved on regeneration
 1;
