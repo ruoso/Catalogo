@@ -21,9 +21,9 @@ sub flat_vazio :Chained('base') :Args(0) :PathPart('flat') {
 sub flat :Chained('base') :Args(1) {
     my ($self, $c, $id) = @_;
     $id = undef unless $id;
-    $c->stash->{tr_categoria_mae_id} = $id;
+    $c->stash->{tr_categoria_id} = $id;
     if ($id) {
-        $c->stash->{tr_categoria_mae} =
+        $c->stash->{tr_categoria} =
           $c->model('TermoReferencia')->obter_tr_categoria($id);
     }
 }

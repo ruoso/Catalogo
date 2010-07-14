@@ -1,13 +1,13 @@
-[% IF tr_categoria_mae_id %]
-[%  SET paginacao_rs = c.model('TermoReferencia').navegar_tr_categorias(tr_categoria_mae_id); %]
+[% IF tr_categoria_id %]
+[%  SET paginacao_rs = c.model('TermoReferencia').navegar_tr_categorias(tr_categoria_id); %]
 [% ELSE %]
 [%  SET paginacao_rs = c.model('TermoReferencia').navegar_tr_categorias(); %]
 [% END %]
 
 [% PROCESS configuracao_paginacao.tt %]
 
-[% IF tr_categoria_mae %]
-[% c.place_bread(c.req.uri, 'Categorias TR (' _ tr_categoria_mae.codigo _ ' p. ' _ c.req.param('pagina') _ ')') %]
+[% IF tr_categoria %]
+[% c.place_bread(c.req.uri, 'Categorias TR (' _ tr_categoria.codigo _ ' p. ' _ c.req.param('pagina') _ ')') %]
 [% ELSE %]
 [% c.place_bread(c.req.uri, 'Categorias TR (p. ' _ c.req.param('pagina') _ ')') %]
 [% END %]
@@ -20,13 +20,28 @@
     <INPUT TYPE='submit' value='enviar' />
 </FORM>
 
-[% IF tr_categoria_mae %]
-<P><A HREF="[% c.uri_for_action('/auth/trcategorias/flat', tr_categoria_mae.tr_categoria_mae_id) %]">Ver Categoria Superior</A></P>
+[% IF tr_categoria %]
+ <H1>[% tr_categoria.codigo %] - [% tr_categoria.nome %]</H1>
+ [% IF tr_categoria.tr_categoria_mae_id %]
+  <H2>Hierarquia</H2>
+  <P><A HREF="[% c.uri_for_action('/auth/trcategorias/flat', 0) %]">Voltar à lista principal</A></P>
+  [% SET hierarquia = [] %]
+  [% SET categoria_mae = tr_categoria.tr_categoria_mae %]
+  [% WHILE (categoria_mae) %]
+   [% esta_categoria = BLOCK %]
+   <P><A HREF="[% c.uri_for_action('/auth/trcategorias/flat', tr_categoria.tr_categoria_mae_id) %]">[% categoria_mae.codigo %] - [% categoria_mae.nome %]</A></P>
+   [% END %]
+   [% hierarquia.unshift(esta_categoria) %]
+   [% SET categoria_mae = categoria_mae.tr_categoria_mae %]
+  [% END %]
+  [% FOREACH cat IN hierarquia; cat; END %]
+ [% END %]
+ <H2>Sub-categorias</h2>
 [% END %]
 
-<UL class="grupo_categorias_nivel_0" id="lista_de_tr_categorias">
+<DL class="grupo_categorias_nivel_0" id="lista_de_tr_categorias">
 [% INCLUDE 'auth/trcategorias/lista_tr_categorias.tt' %]
-</UL>
+</DL>
 
 [% INCLUDE 'navegacao_paginacao.tt' %]
 [% INCLUDE 'resumo_paginacao.tt' %]
