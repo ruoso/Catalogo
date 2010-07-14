@@ -20,6 +20,10 @@
     <INPUT TYPE='submit' value='enviar' />
 </FORM>
 
+[% IF tr_categoria_mae %]
+<P><A HREF="[% c.uri_for_action('/auth/trcategorias/flat', tr_categoria_mae.tr_categoria_mae_id) %]">Ver Categoria Superior</A></P>
+[% END %]
+
 <UL class="grupo_categorias_nivel_0" id="lista_de_tr_categorias">
 [% INCLUDE 'auth/trcategorias/lista_tr_categorias.tt' %]
 </UL>

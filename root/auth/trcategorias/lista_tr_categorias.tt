@@ -2,27 +2,27 @@
 [% FOREACH categoria IN pagina_rs.all %]
 
    [% WHILE last_nivel > categoria.nivel %]
-   </UL>
+   </DL>
    [% SET last_nivel = last_nivel - 1 %]
    [% END %]
 
    [% WHILE last_nivel < categoria.nivel %]
-   <UL class="grupo_categorias_nivel_[% last_nivel %]">
+   <DL class="grupo_categorias_nivel_[% last_nivel %]">
    [% SET last_nivel = last_nivel + 1 %]
    [% END %]
 
-    <LI class="tr_categoria categoria_nivel_[% categoria.nivel %]" id="li_tr_categoria_[% categoria.tr_categoria_id %]">
-           [% categoria.codigo %] - [% categoria.nome %]
+    <DT class="tr_categoria categoria_nivel_[% categoria.nivel %]" id="li_tr_categoria_[% categoria.tr_categoria_id %]">
+         [% categoria.codigo %]</DT><DD>[% categoria.nome %]
       <SPAN class="acoes_categoria">
        <A HREF="[% c.uri_for_action('/auth/trcategorias/flat', categoria.tr_categoria_id) %]" class="visualizar">Ver</A>
-      </SPAN>
-    </LI>
+      </SPAN></DD>
+    </DD>
 
    [% SET last_nivel = categoria.nivel %]
 
 [% END %]
 
    [% WHILE last_nivel > 0 %]
-   </UL>
+   </DL>
    [% SET last_nivel = last_nivel - 1 %]
    [% END %]
