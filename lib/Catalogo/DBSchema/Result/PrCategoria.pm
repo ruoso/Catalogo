@@ -29,19 +29,19 @@ __PACKAGE__->table("pr_categorias");
 
 =head2 codigo
 
-  data_type: 'character varying'
+  data_type: 'varchar'
   is_nullable: 0
   size: 20
 
 =head2 nome
 
-  data_type: 'character varying'
+  data_type: 'varchar'
   is_nullable: 0
   size: 200
 
 =head2 descricao
 
-  data_type: 'character varying'
+  data_type: 'varchar'
   is_nullable: 1
   size: 2000
 
@@ -59,12 +59,12 @@ __PACKAGE__->table("pr_categorias");
 
 =head2 validade_inicio
 
-  data_type: 'timestamp without time zone'
+  data_type: 'timestamp'
   is_nullable: 1
 
 =head2 validade_fim
 
-  data_type: 'timestamp without time zone'
+  data_type: 'timestamp'
   is_nullable: 1
 
 =cut
@@ -78,19 +78,19 @@ __PACKAGE__->add_columns(
     sequence          => "pr_categorias_pr_categoria_id_seq",
   },
   "codigo",
-  { data_type => "character varying", is_nullable => 0, size => 20 },
+  { data_type => "varchar", is_nullable => 0, size => 20 },
   "nome",
-  { data_type => "character varying", is_nullable => 0, size => 200 },
+  { data_type => "varchar", is_nullable => 0, size => 200 },
   "descricao",
-  { data_type => "character varying", is_nullable => 1, size => 2000 },
+  { data_type => "varchar", is_nullable => 1, size => 2000 },
   "tipo_classificacao_id",
   { data_type => "integer", is_foreign_key => 1, is_nullable => 0 },
   "pr_categoira_mae_id",
   { data_type => "integer", is_foreign_key => 1, is_nullable => 1 },
   "validade_inicio",
-  { data_type => "timestamp without time zone", is_nullable => 1 },
+  { data_type => "timestamp", is_nullable => 1 },
   "validade_fim",
-  { data_type => "timestamp without time zone", is_nullable => 1 },
+  { data_type => "timestamp", is_nullable => 1 },
 );
 __PACKAGE__->set_primary_key("pr_categoria_id");
 
@@ -107,8 +107,8 @@ Related object: L<Catalogo::DBSchema::Result::TipoClassificacao>
 __PACKAGE__->belongs_to(
   "tipo_classificacao",
   "Catalogo::DBSchema::Result::TipoClassificacao",
-  { "tipo_classificacao_id" => "tipo_classificacao_id" },
-  { is_deferrable => 1, on_delete => "CASCADE", on_update => "CASCADE" },
+  { tipo_classificacao_id => "tipo_classificacao_id" },
+  { on_delete => "CASCADE", on_update => "CASCADE" },
 );
 
 =head2 pr_categoira_mae
@@ -123,12 +123,7 @@ __PACKAGE__->belongs_to(
   "pr_categoira_mae",
   "Catalogo::DBSchema::Result::PrCategoria",
   { pr_categoria_id => "pr_categoira_mae_id" },
-  {
-    is_deferrable => 1,
-    join_type     => "LEFT",
-    on_delete     => "CASCADE",
-    on_update     => "CASCADE",
-  },
+  { join_type => "LEFT", on_delete => "CASCADE", on_update => "CASCADE" },
 );
 
 =head2 pr_categorias
@@ -162,8 +157,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.06000 @ 2010-07-07 23:44:07
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:G+F2Zgfl6SDAjjYw40FVIQ
+# Created by DBIx::Class::Schema::Loader v0.07000 @ 2010-07-14 16:14:20
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:34WO0UK9nugMFOb7PrJQew
 
 
 # You can replace this text with custom content, and it will be preserved on regeneration

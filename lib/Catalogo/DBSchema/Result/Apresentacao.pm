@@ -35,13 +35,13 @@ __PACKAGE__->table("apresentacoes");
 
 =head2 unidade_medida
 
-  data_type: 'character varying'
+  data_type: 'varchar'
   is_nullable: 0
   size: 20
 
 =head2 cod_barra
 
-  data_type: 'character varying'
+  data_type: 'varchar'
   is_nullable: 1
   size: 50
 
@@ -58,9 +58,9 @@ __PACKAGE__->add_columns(
   "produto_id",
   { data_type => "integer", is_foreign_key => 1, is_nullable => 0 },
   "unidade_medida",
-  { data_type => "character varying", is_nullable => 0, size => 20 },
+  { data_type => "varchar", is_nullable => 0, size => 20 },
   "cod_barra",
-  { data_type => "character varying", is_nullable => 1, size => 50 },
+  { data_type => "varchar", is_nullable => 1, size => 50 },
 );
 __PACKAGE__->set_primary_key("apresentacao_id");
 
@@ -78,7 +78,7 @@ __PACKAGE__->belongs_to(
   "produto",
   "Catalogo::DBSchema::Result::Produto",
   { produto_id => "produto_id" },
-  { is_deferrable => 1, on_delete => "CASCADE", on_update => "CASCADE" },
+  { on_delete => "CASCADE", on_update => "CASCADE" },
 );
 
 =head2 derivacoes
@@ -112,8 +112,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.06000 @ 2010-07-07 23:50:33
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:sKkBIPG4KsuLD7FKr5d1NQ
+# Created by DBIx::Class::Schema::Loader v0.07000 @ 2010-07-14 16:14:20
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:I8g6bvXuHY7IsR/byUdwMA
 
 
 # You can replace this text with custom content, and it will be preserved on regeneration

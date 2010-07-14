@@ -35,19 +35,19 @@ __PACKAGE__->table("termos_referencia");
 
 =head2 codigo
 
-  data_type: 'character varying'
+  data_type: 'varchar'
   is_nullable: 0
   size: 20
 
 =head2 nome
 
-  data_type: 'character varying'
+  data_type: 'varchar'
   is_nullable: 0
   size: 200
 
 =head2 descricao
 
-  data_type: 'character varying'
+  data_type: 'varchar'
   is_nullable: 1
   size: 2000
 
@@ -59,12 +59,12 @@ __PACKAGE__->table("termos_referencia");
 
 =head2 validade_inicio
 
-  data_type: 'timestamp without time zone'
+  data_type: 'timestamp'
   is_nullable: 1
 
 =head2 validade_fim
 
-  data_type: 'timestamp without time zone'
+  data_type: 'timestamp'
   is_nullable: 1
 
 =cut
@@ -80,17 +80,17 @@ __PACKAGE__->add_columns(
   "tr_categoria_id",
   { data_type => "integer", is_foreign_key => 1, is_nullable => 0 },
   "codigo",
-  { data_type => "character varying", is_nullable => 0, size => 20 },
+  { data_type => "varchar", is_nullable => 0, size => 20 },
   "nome",
-  { data_type => "character varying", is_nullable => 0, size => 200 },
+  { data_type => "varchar", is_nullable => 0, size => 200 },
   "descricao",
-  { data_type => "character varying", is_nullable => 1, size => 2000 },
+  { data_type => "varchar", is_nullable => 1, size => 2000 },
   "natureza_id",
   { data_type => "integer", is_foreign_key => 1, is_nullable => 0 },
   "validade_inicio",
-  { data_type => "timestamp without time zone", is_nullable => 1 },
+  { data_type => "timestamp", is_nullable => 1 },
   "validade_fim",
-  { data_type => "timestamp without time zone", is_nullable => 1 },
+  { data_type => "timestamp", is_nullable => 1 },
 );
 __PACKAGE__->set_primary_key("termo_referencia_id");
 
@@ -138,7 +138,7 @@ __PACKAGE__->belongs_to(
   "natureza",
   "Catalogo::DBSchema::Result::Natureza",
   { natureza_id => "natureza_id" },
-  { is_deferrable => 1, on_delete => "CASCADE", on_update => "CASCADE" },
+  { on_delete => "CASCADE", on_update => "CASCADE" },
 );
 
 =head2 tr_categoria
@@ -153,12 +153,12 @@ __PACKAGE__->belongs_to(
   "tr_categoria",
   "Catalogo::DBSchema::Result::TrCategoria",
   { tr_categoria_id => "tr_categoria_id" },
-  { is_deferrable => 1, on_delete => "CASCADE", on_update => "CASCADE" },
+  { on_delete => "CASCADE", on_update => "CASCADE" },
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.06000 @ 2010-07-07 23:44:07
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:zmIUm9tuWerMwalPHia/Yg
+# Created by DBIx::Class::Schema::Loader v0.07000 @ 2010-07-14 16:14:20
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:sHZP6Dy2bfWTLSPMRDkqPA
 
 
 # You can replace this text with custom content, and it will be preserved on regeneration

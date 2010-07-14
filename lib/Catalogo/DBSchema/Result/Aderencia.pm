@@ -34,12 +34,12 @@ __PACKAGE__->table("aderencias");
 
 =head2 validade_inicio
 
-  data_type: 'timestamp without time zone'
+  data_type: 'timestamp'
   is_nullable: 1
 
 =head2 validade_fim
 
-  data_type: 'timestamp without time zone'
+  data_type: 'timestamp'
   default_value: infinity
   is_nullable: 0
 
@@ -51,13 +51,9 @@ __PACKAGE__->add_columns(
   "termo_referencia_id",
   { data_type => "integer", is_foreign_key => 1, is_nullable => 0 },
   "validade_inicio",
-  { data_type => "timestamp without time zone", is_nullable => 1 },
+  { data_type => "timestamp", is_nullable => 1 },
   "validade_fim",
-  {
-    data_type     => "timestamp without time zone",
-    default_value => "infinity",
-    is_nullable   => 0,
-  },
+  { data_type => "timestamp", default_value => "infinity", is_nullable => 0 },
 );
 __PACKAGE__->set_primary_key("produto_id", "termo_referencia_id", "validade_fim");
 
@@ -75,7 +71,7 @@ __PACKAGE__->belongs_to(
   "produto",
   "Catalogo::DBSchema::Result::Produto",
   { produto_id => "produto_id" },
-  { is_deferrable => 1, on_delete => "CASCADE", on_update => "CASCADE" },
+  { on_delete => "CASCADE", on_update => "CASCADE" },
 );
 
 =head2 termo_referencia
@@ -90,12 +86,12 @@ __PACKAGE__->belongs_to(
   "termo_referencia",
   "Catalogo::DBSchema::Result::TermoReferencia",
   { termo_referencia_id => "termo_referencia_id" },
-  { is_deferrable => 1, on_delete => "CASCADE", on_update => "CASCADE" },
+  { on_delete => "CASCADE", on_update => "CASCADE" },
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.06000 @ 2010-07-07 23:44:07
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:WhWrDALwj5KkhYa/JlIjCg
+# Created by DBIx::Class::Schema::Loader v0.07000 @ 2010-07-14 16:14:20
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:oH+uVG1saWlLhEUU2AIrJQ
 
 
 # You can replace this text with custom content, and it will be preserved on regeneration

@@ -12,10 +12,9 @@
    [% END %]
 
     <DT class="tr_categoria categoria_nivel_[% categoria.nivel %]" id="li_tr_categoria_[% categoria.tr_categoria_id %]">
-         [% categoria.codigo %]</DT><DD>[% categoria.nome %]
-      <SPAN class="acoes_categoria">
-       <A HREF="[% c.uri_for_action('/auth/trcategorias/flat', categoria.tr_categoria_id) %]" class="visualizar">Ver</A>
-      </SPAN></DD>
+         [% categoria.codigo %]</DT><DD>
+       <A HREF="[% c.uri_for_action('/auth/trcategorias/flat', categoria.tr_categoria_id) %]">[% categoria.nome %]</A>
+      </DD>
     </DD>
 
    [% SET last_nivel = categoria.nivel %]

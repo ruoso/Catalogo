@@ -1,6 +1,6 @@
 [%  
     IF c.req.param('txtfiltro');
-        SET v = c.req.param('txtfiltro');
+        SET v = '%' _ c.req.param('txtfiltro') _ '%';
     ELSE;
         SET v = '%';
     END;

@@ -29,7 +29,7 @@ __PACKAGE__->table("naturezas");
 
 =head2 descricao
 
-  data_type: 'character'
+  data_type: 'char'
   is_nullable: 1
   size: 10
 
@@ -44,7 +44,7 @@ __PACKAGE__->add_columns(
     sequence          => "naturezas_natureza_id_seq",
   },
   "descricao",
-  { data_type => "character", is_nullable => 1, size => 10 },
+  { data_type => "char", is_nullable => 1, size => 10 },
 );
 __PACKAGE__->set_primary_key("natureza_id");
 
@@ -66,8 +66,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.06000 @ 2010-07-07 23:48:45
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:2jaiERbEuWXx9BbIUB1peA
+# Created by DBIx::Class::Schema::Loader v0.07000 @ 2010-07-14 16:14:20
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:p8ElBU04KFuqeZFm3TC0Fw
 
 
 # You can replace this text with custom content, and it will be preserved on regeneration

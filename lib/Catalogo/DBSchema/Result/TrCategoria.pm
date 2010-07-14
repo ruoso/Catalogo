@@ -29,19 +29,19 @@ __PACKAGE__->table("tr_categorias");
 
 =head2 codigo
 
-  data_type: 'character varying'
+  data_type: 'varchar'
   is_nullable: 0
   size: 20
 
 =head2 nome
 
-  data_type: 'character varying'
+  data_type: 'text'
   is_nullable: 0
-  size: 200
+  original: {data_type => "varchar"}
 
 =head2 descricao
 
-  data_type: 'character varying'
+  data_type: 'varchar'
   is_nullable: 1
   size: 2000
 
@@ -53,18 +53,24 @@ __PACKAGE__->table("tr_categorias");
 
 =head2 validade_inicio
 
-  data_type: 'timestamp without time zone'
+  data_type: 'timestamp'
   is_nullable: 1
 
 =head2 validade_fim
 
-  data_type: 'timestamp without time zone'
+  data_type: 'timestamp'
   is_nullable: 1
 
 =head2 nivel
 
   data_type: 'integer'
   default_value: 0
+  is_nullable: 0
+
+=head2 terminal
+
+  data_type: 'boolean'
+  default_value: false
   is_nullable: 0
 
 =cut
@@ -78,19 +84,25 @@ __PACKAGE__->add_columns(
     sequence          => "tr_categorias_tr_categoria_id_seq",
   },
   "codigo",
-  { data_type => "character varying", is_nullable => 0, size => 20 },
+  { data_type => "varchar", is_nullable => 0, size => 20 },
   "nome",
-  { data_type => "character varying", is_nullable => 0, size => 200 },
+  {
+    data_type   => "text",
+    is_nullable => 0,
+    original    => { data_type => "varchar" },
+  },
   "descricao",
-  { data_type => "character varying", is_nullable => 1, size => 2000 },
+  { data_type => "varchar", is_nullable => 1, size => 2000 },
   "tr_categoria_mae_id",
   { data_type => "integer", is_foreign_key => 1, is_nullable => 1 },
   "validade_inicio",
-  { data_type => "timestamp without time zone", is_nullable => 1 },
+  { data_type => "timestamp", is_nullable => 1 },
   "validade_fim",
-  { data_type => "timestamp without time zone", is_nullable => 1 },
+  { data_type => "timestamp", is_nullable => 1 },
   "nivel",
   { data_type => "integer", default_value => 0, is_nullable => 0 },
+  "terminal",
+  { data_type => "boolean", default_value => \"false", is_nullable => 0 },
 );
 __PACKAGE__->set_primary_key("tr_categoria_id");
 
@@ -123,12 +135,7 @@ __PACKAGE__->belongs_to(
   "tr_categoria_mae",
   "Catalogo::DBSchema::Result::TrCategoria",
   { tr_categoria_id => "tr_categoria_mae_id" },
-  {
-    is_deferrable => 1,
-    join_type     => "LEFT",
-    on_delete     => "CASCADE",
-    on_update     => "CASCADE",
-  },
+  { join_type => "LEFT", on_delete => "CASCADE", on_update => "CASCADE" },
 );
 
 =head2 tr_categorias
@@ -147,8 +154,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.06000 @ 2010-07-09 13:25:19
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:dlOLdJh0CoFTIAGPmbquNQ
+# Created by DBIx::Class::Schema::Loader v0.07000 @ 2010-07-14 16:14:20
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:q3V6vpUH2dzEPc32DSvI0A
 
 # You can replace this text with custom content, and it will be preserved on regeneration
 1;

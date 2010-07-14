@@ -29,13 +29,13 @@ __PACKAGE__->table("tipos_classificacao");
 
 =head2 nome
 
-  data_type: 'character varying'
+  data_type: 'varchar'
   is_nullable: 0
   size: 200
 
 =head2 descricao
 
-  data_type: 'character varying'
+  data_type: 'varchar'
   is_nullable: 1
   size: 2000
 
@@ -50,9 +50,9 @@ __PACKAGE__->add_columns(
     sequence          => "tipos_classificacao_tipo_classificacao_id_seq",
   },
   "nome",
-  { data_type => "character varying", is_nullable => 0, size => 200 },
+  { data_type => "varchar", is_nullable => 0, size => 200 },
   "descricao",
-  { data_type => "character varying", is_nullable => 1, size => 2000 },
+  { data_type => "varchar", is_nullable => 1, size => 2000 },
 );
 __PACKAGE__->set_primary_key("tipo_classificacao_id");
 
@@ -74,8 +74,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.06000 @ 2010-07-07 23:44:07
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:LqfZVxufcjPLBngL1b0QyQ
+# Created by DBIx::Class::Schema::Loader v0.07000 @ 2010-07-14 16:14:20
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:r/x1Wy6eo49iar/w9oWmJA
 
 
 # You can replace this text with custom content, and it will be preserved on regeneration

@@ -77,7 +77,7 @@ __PACKAGE__->belongs_to(
   "apresentacao_origem",
   "Catalogo::DBSchema::Result::Apresentacao",
   { apresentacao_id => "apresentacao_origem_id" },
-  { is_deferrable => 1, on_delete => "CASCADE", on_update => "CASCADE" },
+  { on_delete => "CASCADE", on_update => "CASCADE" },
 );
 
 =head2 apresentacao_composta
@@ -92,12 +92,12 @@ __PACKAGE__->belongs_to(
   "apresentacao_composta",
   "Catalogo::DBSchema::Result::Apresentacao",
   { apresentacao_id => "apresentacao_composta_id" },
-  { is_deferrable => 1, on_delete => "CASCADE", on_update => "CASCADE" },
+  { on_delete => "CASCADE", on_update => "CASCADE" },
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.06000 @ 2010-07-07 23:44:07
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:XWfrMc7zs+V/zTSTeo7jXg
+# Created by DBIx::Class::Schema::Loader v0.07000 @ 2010-07-14 16:14:20
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:J41xP46sEbVhpIYxEMj+iQ
 
 
 # You can replace this text with custom content, and it will be preserved on regeneration

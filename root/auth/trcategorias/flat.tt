@@ -15,16 +15,13 @@
 [% INCLUDE 'header.tt' %]
 
 
-<FORM ACTION='[% c.uri_for_action('/auth/trcategorias/index') %]' METHOD='GET'>
-    <INPUT TYPE='text' name='txtfiltro' VALUE="[% c.req.param('txtfiltro') | html %]" />
-    <INPUT TYPE='submit' value='enviar' />
-</FORM>
+
 
 [% IF tr_categoria %]
  <H1>[% tr_categoria.codigo %] - [% tr_categoria.nome %]</H1>
- [% IF tr_categoria.tr_categoria_mae_id %]
   <H2>Hierarquia</H2>
   <P><A HREF="[% c.uri_for_action('/auth/trcategorias/flat', 0) %]">Voltar à lista principal</A></P>
+ [% IF tr_categoria.tr_categoria_mae_id %]
   [% SET hierarquia = [] %]
   [% SET categoria_mae = tr_categoria.tr_categoria_mae %]
   [% WHILE (categoria_mae) %]
@@ -36,7 +33,11 @@
   [% END %]
   [% FOREACH cat IN hierarquia; cat; END %]
  [% END %]
- <H2>Sub-categorias</h2>
+ [% IF tr_categoria.terminal %]
+   <H2>Artigos</H2>
+ [% ELSE %]
+   <H2>Sub-categorias</h2>
+ [% END %]
 [% END %]
 
 <DL class="grupo_categorias_nivel_0" id="lista_de_tr_categorias">
