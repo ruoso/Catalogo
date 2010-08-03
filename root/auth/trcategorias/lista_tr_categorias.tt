@@ -15,7 +15,7 @@
          [% categoria.codigo %]</DT><DD>
        <A HREF="[% c.uri_for_action('/auth/trcategorias/flat', categoria.tr_categoria_id) %]">[% categoria.nome %]</A>
       </DD>
-    </DD>
+    
 
    [% SET last_nivel = categoria.nivel %]
 
