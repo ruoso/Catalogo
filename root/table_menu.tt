@@ -1,16 +1,16 @@
 <UL>
  <LI>Artigos
   <UL>
-   <LI><a href="[% c.uri_for_action('/auth/trcategorias/index') %]">Buscar Categorias de Artigos<a></LI>
+   <LI><a href="[% c.uri_for_action('/auth/trcategorias/index') %]">Buscar Categorias de Artigos</a></LI>
    <LI><a href="[% c.uri_for_action('/auth/trcategorias/flat') %]">Navegar nas Categorias de Artigos</a></LI>
-   <LI><a href="#">Buscar Termo de Referência<a></LI>
+   <LI><a href="#">Buscar Termo de Referência</a></LI>
   </UL>
  </LI>
  <LI>Produtos
   <UL>
-   <LI><a href="#">Categorias de Produtos<a></LI>
-   <LI><a href="#">Buscar Produto<a></LI>
+   <LI><a href="#">Categorias de Produtos</a></LI>
+   <LI><a href="#">Buscar Produto</a></LI>
   </UL>
  </LI>
- <LI><A href="[% c.uri_for_action('/auth/logout') %]">Sair</A></LI>
+ <LI><a href="[% c.uri_for_action('/auth/logout') %]">Sair</a></LI>
 </UL>
