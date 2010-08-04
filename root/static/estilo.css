@@ -23,14 +23,23 @@ html
 }
 
 body {
+  font-size: 0.79em;
 	background: url(img/degrade.jpg) repeat-x 0% 130px;
 	margin: 0px;
 }
 
+h1 {
+  font-size: 1.67em;
+}
+
 h2 {
+  font-size: 1.5em;
 	margin-top: 5px;
-	font-size: 2em;
 	margin-bottom: 5px;
+}
+
+h3 {
+  font-size: 1.3em;
 }
 
 a, a:active, a:hover, a:visited {
@@ -64,7 +73,7 @@ a, a:active, a:hover, a:visited {
 #topoTitulo
 {
     padding-top: 20px;
-    font-size: 100%;
+
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 1px 1px #CC0000;
@@ -79,7 +88,7 @@ a, a:active, a:hover, a:visited {
     border: 0px;
     padding: 0px;
     margin: 5px 0px 10px;
-    font-size: 75%;
+    /*font-size: 75%;*/
     font-weight: normal;
     text-transform: none;
 }
@@ -95,11 +104,11 @@ a, a:active, a:hover, a:visited {
 #barraTopo ul
 {
     margin-top: 0px;
-    padding-left:30px;
-	padding-right: 10px;
-    padding-top: 5px;
+    padding-left: 30px;
+    padding-right: 10px;
+    padding-top: 3px;
     margin-bottom: 0px;
-    list-style:none;
+    list-style: none;
 }
 
 #barraTopo ul li:hover
@@ -111,7 +120,7 @@ a, a:active, a:hover, a:visited {
 {
     overflow: hidden;
     line-height: 1.5em;
-    font-size:90%;
+    /*font-size:90%;*/
     display: block;
     float: left;
     position: relative;
@@ -168,47 +177,11 @@ a, a:active, a:hover, a:visited {
 	text-indent: 0px;
 }
 
-.navmenu {
-	
-	border-top: 1px solid #999;
-	margin-top: 0px;
-	list-style: none;
-	padding-left: 0px;
-	margin: 0px 30px 0px;
-	padding-left: 12px;
-	background: #EFEFEF;
-	font-size: 13px;
-	text-shadow: -1px 1px 0px #FFF;
-	
-}
-
-	.navmenu ul.abas {
-		margin: 0px;
-		margin-left: 20px;
-		padding-left: 0px;
-		display: inline;
-	}
-		.navmenu ul.abas li { 
-			padding: 7px 16px;
-		}
-		.navmenu ul.abas li.ativa {
-			background: white;
-		}
-			.navmenu ul.abas li.ativa a {
-				color: black;
-				text-decoration: none;
-			}
-
-.navmenu li {
-	display: inline;
-	line-height: 30px;
-	padding-right: 20px;
-}
-
 a.novo {
 	background: url('img/add.png') no-repeat 0% 50%;
 	padding-left: 22px;
 }
+
 a.voltar {
 	background: url('img/18.png') no-repeat 0% 50%;
 	padding-left: 22px;
@@ -220,7 +193,7 @@ a.voltar {
     padding: 0px;
     text-align: left;
     height: auto;
-    font-size: 12px;
+
     text-transform: none;
 }
 
@@ -235,7 +208,7 @@ a.voltar {
     margin: 30px 0px 0px;
     line-height: 30px;
     padding-left: 30px;
-    font-size: 12px;
+    /*font-size: 12px;*/
     font-weight: normal;
     text-transform:none;
     background: #FFD214 url(img/bgRodape.png) top left repeat-x;
@@ -342,7 +315,7 @@ input[type=submit], input[type=button], input[type=reset], input[type=password],
     border-width: 1px;
     background-position: #FFFFFF;
     font-family: Sans-Serif;
-    font-size: 11px;
+    /**font-size: 11px;*/
     font-weight: bold;
     color: #CC0000;
     background: #FFFF99;
@@ -357,7 +330,7 @@ table thead tr th
 	color: #FFFFFF;
 	background: #CC0000;
 	padding: 5px;
-	font-size: 1.1em;
+	/*font-size: 1.1em;*/
 	text-shadow: -1px 1px 0px #990000;	
 	border-bottom: #990000 solid 2px;	
 }
@@ -369,7 +342,7 @@ table thead tr th a {
 table tbody tr td 
 {
 	padding: 3px;
-	font-size: 1em;
+	/*font-size: 1em;*/
 	border-bottom: #EAAB15 solid 1px;	
 }
 
@@ -380,7 +353,7 @@ table tbody tr td
 .revisordadosform {
     font-style: italic;
     text-align: left;
-    font-size: 80%;
+    /*font-size: 80%;*/
 }
 
 a.fechar
@@ -626,7 +599,7 @@ tr.odd td {
 }
 
 .sucesso {
-        font-size: 1.3em;
+        /*font-size: 1.3em;*/
         font-weight: bold;
 	color: darkgreen;
         background-color: #ffffaf;
@@ -640,7 +613,7 @@ tr.odd td {
 }
 
 .erro {
-        font-size: 1.3em;
+        /*font-size: 1.3em;*/
         font-weight: bold;
 	color: darkred;
 	background-image: url(img/exclamation.png);
@@ -681,7 +654,7 @@ tr.odd td {
 	*/
 	/*width: 100%;*/
 	font: menu;
-	font-size: 12px;
+	/*font-size: 12px;*/
 	/* 
 	it is very important, if line-height not setted or setted 
 	in relative units scroll will be broken in firefox
