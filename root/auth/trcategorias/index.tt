@@ -18,9 +18,9 @@
     <INPUT TYPE='submit' value='enviar' />
 </FORM>
 
-<UL class="grupo_categorias_nivel_0" id="lista_de_tr_categorias">
+
 [% INCLUDE 'auth/trcategorias/lista_tr_categorias.tt' %]
-</UL>
+
 
 [% INCLUDE 'navegacao_paginacao.tt' %]
 [% INCLUDE 'resumo_paginacao.tt' %]
