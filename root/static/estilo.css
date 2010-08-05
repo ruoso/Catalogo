@@ -52,7 +52,6 @@ dt {
 }
 
 form {
-  font-family: sans-serif;
   background-color: transparent;
   width: 50em;
 }
@@ -108,60 +107,29 @@ legend {
   text-decoration: underline;
 }
 
-
-input[type=submit], input[type=button], input[type=reset], input[type=password], button 
-{
-  border-style: solid;
-  border-width: 1px;
-  background-position: #FFFFFF;
-  font-family: Sans-Serif;
+input[type=text], input[type=reset], input[type=password] {
+  border: 1px solid #E6B800;
+  /*background-position: #FFFFFF;*/
   /**font-size: 11px;*/
-  font-weight: bold;
   color: #CC0000;
   background: #FFFF99;
   padding: 2px 4px;
-  border-color: #E6B800;
-  margin: 3px 3px 3px 0px;
-  text-shadow: -1px 1px 0px #FFF;
+  height: 15px;
+  margin: 3px 3px 3px 3px;
 }
 
-table thead tr th
-{ 
-  color: #FFFFFF;
-  background: #CC0000;
-  padding: 5px;
-  /*font-size: 1.1em;*/
-  text-shadow: -1px 1px 0px #990000;  
-  border-bottom: #990000 solid 2px; 
-}
-
-table thead tr th a {
-  color: #FFFFFF !important;
-}
-
-table tbody tr td {
-  padding: 3px;
-  /*font-size: 1em;*/
-  /* border-bottom: #EAAB15 solid 1px; */
-}
-
-input[type=submit], input[type=button], input[type=reset], input[type=password], button 
-{
-  border-style: solid;
-  border-width: 1px;
-  background-position: #FFFFFF;
-  font-family: Sans-Serif;
-  /**font-size: 11px;*/
-  font-weight: bold;
+input[type=submit], input[type=button] {
+  font-weight: bold; 
+  border: 1px solid #E6B800;
+  /*background-position: #FFFFFF;*/
   color: #CC0000;
   background: #FFFF99;
-  padding: 2px 4px;
-  border-color: #E6B800;
-  margin: 3px 3px 3px 0px;
-  text-shadow: -1px 1px 0px #FFF;
+  margin: 3px 3px 3px 3px;
 }
 
-
+#login_form input[type=submit] {
+  float: right;
+}
 
 .linha_com_dados_extra {
   border: 0;
@@ -461,11 +429,6 @@ a.visualizar
   text-transform: none;
 }
 
-#conteudo table {
-  width: 100%;
-  text-align: left;
-}
-
 #breadcrumb {
   margin: 10px 10px;
   background: #dedede;
@@ -628,16 +591,6 @@ a.visualizar
   
 }*/
 /* Alteração Bruno - Fim */
-
-input[type=text]
-{
-  border:1px solid #E6B800;
-  background-position: #FFFFFF;
-  font: normal 1.0em Sans-Serif;
-  color: #CC0000;
-  background: #FFFFAF;
-  height: 18px;
-}
 
 select
 {
