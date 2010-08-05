@@ -1,10 +1,10 @@
 [% INCLUDE 'header.tt' %]
   [% IF error == 'usuario-invalido' %]
-  <P>Login ou senha invalida.</P>
+  <p>Login ou senha invalida.</p>
   [% END %]
-  <FORM action="[% c.uri_for_action('/auth/login') %]" method="POST">
-   <INPUT TYPE="text" name="login">
-   <INPUT TYPE="password" name="password">
+  <form action="[% c.uri_for_action('/auth/login') %]" method="POST">
+   <input TYPE="text" name="login">
+   <input TYPE="password" name="password">
    <input type="submit" value="login">
   </form>
 [% INCLUDE 'footer.tt' %]

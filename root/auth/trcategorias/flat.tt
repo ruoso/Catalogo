@@ -18,15 +18,15 @@
 
 
 [% IF tr_categoria %]
- <H1>[% tr_categoria.codigo %] - [% tr_categoria.nome %]</H1>
-  <H2>Hierarquia</H2>
-  <P><A HREF="[% c.uri_for_action('/auth/trcategorias/flat', 0) %]">Voltar à lista principal</A></P>
+ <h1>[% tr_categoria.codigo %] - [% tr_categoria.nome %]</h1>
+  <h2>Hierarquia</h2>
+  <p><a href="[% c.uri_for_action('/auth/trcategorias/flat', 0) %]">Voltar à lista principal</a></p>
  [% IF tr_categoria.tr_categoria_mae_id %]
   [% SET hierarquia = [] %]
   [% SET categoria_mae = tr_categoria.tr_categoria_mae %]
   [% WHILE (categoria_mae) %]
    [% esta_categoria = BLOCK %]
-   <P><A HREF="[% c.uri_for_action('/auth/trcategorias/flat', tr_categoria.tr_categoria_mae_id) %]">[% categoria_mae.codigo %] - [% categoria_mae.nome %]</A></P>
+   <p><a href="[% c.uri_for_action('/auth/trcategorias/flat', tr_categoria.tr_categoria_mae_id) %]">[% categoria_mae.codigo %] - [% categoria_mae.nome %]</a></p>
    [% END %]
    [% hierarquia.unshift(esta_categoria) %]
    [% SET categoria_mae = categoria_mae.tr_categoria_mae %]
@@ -34,15 +34,15 @@
   [% FOREACH cat IN hierarquia; cat; END %]
  [% END %]
  [% IF tr_categoria.terminal %]
-   <H2>Artigos</H2>
+   <h2>Artigos</h2>
  [% ELSE %]
-   <H2>Sub-categorias</h2>
+   <h2>Sub-categorias</h2>
  [% END %]
 [% END %]
 
-<DL class="grupo_categorias_nivel_0" id="lista_de_tr_categorias">
+<dl class="grupo_categorias_nivel_0" id="lista_de_tr_categorias">
 [% INCLUDE 'auth/trcategorias/lista_tr_categorias.tt' %]
-</DL>
+</dl>
 
 [% INCLUDE 'navegacao_paginacao.tt' %]
 [% INCLUDE 'resumo_paginacao.tt' %]

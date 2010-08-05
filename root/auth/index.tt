@@ -1,5 +1,6 @@
 [% c.place_bread(c.req.uri, 'Área Autenticada') %]
 [% INCLUDE 'header.tt' %]
 
+Sistema de Catálogo
 
 [% INCLUDE 'footer.tt' %]

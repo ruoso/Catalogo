@@ -13,14 +13,14 @@
 [% INCLUDE 'header.tt' %]
 
 
-<FORM ACTION='[% c.uri_for_action('/auth/trcategorias/index') %]' METHOD='GET'>
-    <INPUT TYPE='text' name='txtfiltro' VALUE="[% c.req.param('txtfiltro') | html %]" />
-    <INPUT TYPE='submit' value='enviar' />
-</FORM>
+<form action='[% c.uri_for_action('/auth/trcategorias/index') %]' method='GET'>
+    <input TYPE='text' name='txtfiltro' value="[% c.req.param('txtfiltro') | html %]" />
+    <input TYPE='submit' value='enviar' />
+</form>
 
-
-[% INCLUDE 'auth/trcategorias/lista_tr_categorias.tt' %]
-
+<dl class="grupo_categorias_nivel_0" id="lista_de_tr_categorias">
+  [% INCLUDE 'auth/trcategorias/lista_tr_categorias.tt' %]
+</dl>
 
 [% INCLUDE 'navegacao_paginacao.tt' %]
 [% INCLUDE 'resumo_paginacao.tt' %]

@@ -1,9 +1,9 @@
 [% IF c.breadcrumb %]
-  <DIV id="breadcrumb">
+  <div id="breadcrumb">
   
   [% FOREACH bread IN c.breadcrumb %]
-    » <A HREF="[% bread.uri %]">[% bread.label %]</A>
+    » <a href="[% bread.uri %]">[% bread.label %]</a>
   [% END %]
   
-  </DIV>
+  </div>
 [% END %]

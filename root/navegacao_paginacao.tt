@@ -1,8 +1,8 @@
-<DIV id="navegacao_paginacao">
+<div id="navegacao_paginacao">
 
 [% IF c.req.param('pagina') > 1 %]
 [% SET args = {}; args.import(c.req.params); args.import({ pagina => c.req.param('pagina') - 1 }) %]
-<A HREF="[% c.uri_for('/' _ c.req.path, args) %]">Anterior</A>
+<a href="[% c.uri_for('/' _ c.req.path, args) %]">Anterior</a>
 
 [% IF (c.req.param('pagina') > 7) %]...[% END %]
 
@@ -10,7 +10,7 @@
 [% WHILE (i < 6 && l < c.req.param('pagina') && l > 0) %]
 
 [% SET args = {}; args.import(c.req.params); args.import({ pagina => l }) %]
-<A HREF="[% c.uri_for('/' _ c.req.path, args) %]">[% l %]</A>
+<a href="[% c.uri_for('/' _ c.req.path, args) %]">[% l %]</a>
    
 [% SET i = i + 1; SET l = l + 1 %]
 [% END %]
@@ -25,13 +25,13 @@
 [% WHILE (i < 6 and l <= num_paginas) %]
 
 [% SET args = {}; args.import(c.req.params); args.import({ pagina => l }) %]
-<A HREF="[% c.uri_for('/' _ c.req.path, args) %]">[% l %]</A>
+<a href="[% c.uri_for('/' _ c.req.path, args) %]">[% l %]</a>
    
 [% SET i = i + 1; SET l = l + 1 %]
 [% IF (i == 6 && l <= num_paginas) %]...[% END %]
 [% END %]
 [% SET args = {}; args.import(c.req.params); args.import({ pagina => c.req.param('pagina') + 1 }) %]
-<A HREF="[% c.uri_for('/' _ c.req.path, args) %]">Próxima</A>
+<a href="[% c.uri_for('/' _ c.req.path, args) %]">Próxima</a>
 [% END %]
 
-</DIV>
+</div>

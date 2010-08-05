@@ -17,32 +17,33 @@
 # título "LICENCA.txt", junto com este programa, se não, escreva para a
 # Fundação do Software Livre(FSF) Inc., 51 Franklin St, Fifth Floor,
 %]
-<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
-<html xmlns='http://www.w3.org/1999/xhtml'>
-    <head>
-        <meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8" />
-        <title>Catálogo Corporativo de Materiais e Serviços</title>
-        <link href='[% c.uri_for('/static/estilo.css') %]' rel='stylesheet' type='text/css' />
-        <script src='[% c.uri_for('/static/js/plugins/jquery.js') %]' language='javascript'>
-        </script>
-    </head>
 
-    <body>
-        <div id='topo'>
-            <img src="[% c.uri_for('/static/img/logoBrasaoPMF.png') %]">
-            <div id='topoTitulo'>
-                Catálogo Corporativo de Materiais e Serviços
-                [% IF c.user %]
-                <table><TR><TD>Usuário:</TD><TD>[% c.user.id %]</TD></TR></TABLE>
-                [% END %]
-            </div>
-        </div>
-        <div id='barraTopo'>
-            <ul>
-             [% INCLUDE table_menu.tt %]
-            </ul>
-        </div>
-        <div id="breadcrumb">        
-          [% INCLUDE 'breadcrumb.tt' %]
-        </div>
-        <div id="conteudo">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8" />
+  <title>Catálogo Corporativo de Materiais e Serviços</title>
+  <link href='[% c.uri_for('/static/estilo.css') %]' rel='stylesheet' type='text/css' />
+  <script src='[% c.uri_for('/static/js/plugins/jquery.js') %]' type="text/javascript">
+  </script>
+</head>
+
+<body>
+  <div id='topo'>
+    <img src="[% c.uri_for('/static/img/logoBrasaoPMF.png') %]" alt="brasao" />
+    <div id='topoTitulo'>
+      Catálogo Corporativo de Materiais e Serviços<br />
+      [% IF c.user %]
+      <div id="usuario">Usuário: [% c.user.id %]</div>
+      [% END %]
+    </div>
+  </div>
+  
+  <div id='barraTopo'>
+    [% INCLUDE table_menu.tt %]
+  </div>
+  
+  [% INCLUDE 'breadcrumb.tt' %]
+  <div id="conteudo">
